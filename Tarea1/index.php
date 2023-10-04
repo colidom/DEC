@@ -14,6 +14,7 @@
 
 </body>
 
+</html>
 <script>
     function cambiaPic() {
         var image = document.getElementById("myFPImage");
@@ -24,5 +25,3 @@
         }
     }
 </script>
-
-</html>
