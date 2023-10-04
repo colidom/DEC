@@ -39,7 +39,6 @@
             image.style.height = 'auto';
         } else {
             image.style.width = '100px';
-
         }
     }
 </script>
