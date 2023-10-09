@@ -1,0 +1,20 @@
+.container {
+    width: 60rem;
+    height: 50rem;
+    margin: 0 auto;
+    background-size: cover;
+    background-color: grey;
+    background-image: url("../img/halloween.jpg");
+    background-position: 50% 50%;
+    border-radius: 2rem;
+    top: 1rem;
+}
+
+.container .main-button {
+    margin-top: 22rem;
+}
+
+.container .content.texto {
+    color: #e69d22;
+    padding-top: 15rem;
+}
