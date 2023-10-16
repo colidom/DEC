@@ -1,15 +1,11 @@
 function fadeWindow() {
-    /* var image = document.getElementById("myFPImage");
-    width = image.getAttribute("width");
-    height = image.getAttribute("height");
+    const scaryImage = document.getElementById("scaryImage");
+    scaryImage.style.width = "999px";
+    scaryImage.style.height = "800px";
+    scaryImage.removeAttribute("hidden");
 
-    if (width == 100 && height == 100) {
-        image.setAttribute("width", "500");
-        image.setAttribute("height", "500");
-    } else {
-        image.setAttribute("width", "100");
-        image.setAttribute("height", "100");
-    } */
-    let window = document.getElementById("#window");
-    window.fadeOut("slow");
+    setTimeout(function () {
+        scaryImage.style.width = "0px";
+        scaryImage.style.height = "0px";
+    }, 3000);
 }

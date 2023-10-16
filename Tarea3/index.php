@@ -21,17 +21,14 @@
         </div>
         <!-- Button trigger modal -->
         <div class="col text-center">
-            <button type="button" class="btn btn-warning main-button" onClick="fadeWindow()">
+            <button type="button" class="btn btn-warning main-button" id="scareButton" onclick="fadeWindow()">
                 Reclamar regalo
             </button>
         </div>
     </div>
 
-    <div id="window">
-        <p>Esta es la img</p>
-    </div>
+    <div class="scary-image" hidden id="scaryImage"></div>
 </body>
 
 </html>
 <script src="./assets/js/script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

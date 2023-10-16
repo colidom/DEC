@@ -18,3 +18,25 @@
     color: #e69d22;
     padding-top: 15rem;
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+button {
+    font-size: 18px;
+    padding: 10px 20px;
+}
+
+.scary-image {
+    width: 100vw; /* Cambia el ancho inicial a 100vw */
+    height: 100vh; /* Cambia la altura inicial a 100vh */
+    background-image: url("../img/monja.jpg");
+    background-size: cover;
+    position: absolute;
+    transition: all 1s;
+}
