@@ -1,14 +1,5 @@
-<!-- Crear un documento que tenga cuatro bloques div o parrafos que tengan como clase class="color-texto" con ciertas 
-    palabras que aparezcan en negrita. Creamos un script que cambie los textos de la clase color-texto y que las 
-    palabras en negrita se cambien por el mismo color pero más oscuro al hacer clic en el boton "cambiar color"
--->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Cambiar color</title>
-    </head>
     <head>
         <meta charset="UTF-8" />
         <title>Cambiar Color</title>
@@ -23,14 +14,19 @@
         </style>
     </head>
     <body>
-        <div class="color-texto">Este es el primer bloque con <strong>palabras en negrita</strong>.</div>
-        <div class="color-texto">Este es el segundo bloque con <strong>otras palabras en negrita</strong>.</div>
-        <div class="color-texto">Este es el tercer bloque con <strong>más palabras en negrita</strong>.</div>
-        <div class="color-texto">Este es el cuarto bloque con <strong>algunas palabras en negrita</strong>.</div>
-        <button id="cambiarColor">Cambiar Color</button>
+        <form action="cambiar_color.php" method="POST">
+            <div class="color-texto">Este es el primer bloque con <strong>palabras en negrita</strong>.</div>
+            <div class="color-texto">Este es el segundo bloque con <strong>otras palabras en negrita</strong>.</div>
+            <div class="color-texto">Este es el tercer bloque con <strong>más palabras en negrita</strong>.</div>
+            <div class="color-texto">Este es el cuarto bloque con <strong>algunas palabras en negrita</strong>.</div>
+            <button type="submit" name="cambiarColorPHP">Cambiar Color (PHP)</button>
+        </form>
+        <button id="cambiarColorJS">Cambiar Color (JS)</button>
+        </form>
+
 
         <script>
-            document.getElementById("cambiarColor").addEventListener("click", function () {
+            document.getElementById("cambiarColorJS").addEventListener("click", function () {
                 var elementosTexto = document.getElementsByClassName("color-texto");
                 for (var i = 0; i < elementosTexto.length; i++) {
                     var palabrasNegrita = elementosTexto[i].getElementsByTagName("strong");
