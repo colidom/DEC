@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p id="parrafo1" style="color: rgb(144, 108, 176)">Cambiando el tamaño del texto</p>
+        <button type="button" onclick="modificarTamaño('aumentar', 0.1)">Agrandar</button>
+        <button type="button" onclick="modificarTamaño('reducir', 0.1)">Reducir</button>
+        <button type="button" onclick="modificarTamaño('original')">Original</button>
+        <button type="button" onclick="modificarContraste('aumentar', 10)">Contraste +</button>
+        <button type="button" onclick="modificarContraste('reducir', 10)">Contraste -</button>
+    </body>
+    <script>
+        let size = 1;
+        let originalSize = 1;
+        let red = 144;
+        let green = 108;
+        let blue = 176;
+        let contraste = 100;
+
+        function modificarTamaño(event, incremento) {
+            let element = document.getElementById("parrafo1");
+
+            switch (event) {
+                case "aumentar":
+                    size += incremento;
+                    break;
+                case "reducir":
+                    size -= incremento;
+                    break;
+                case "original":
+                    size = originalSize;
+                    break;
+            }
+
+            element.style.fontSize = size + "em";
+        }
+
+        function modificarContraste(event, incremento) {
+            let element = document.getElementById("parrafo1");
+
+            switch (event) {
+                case "aumentar":
+                    if (contraste < 10) {
+                        alert("Superado el contraste máximo");
+                        return;
+                    }
+                    contraste -= incremento;
+                    break;
+                case "reducir":
+                    if (contraste > 190) {
+                        alert("Superado el contraste máximo");
+                        return;
+                    }
+                    contraste += incremento;
+                    break;
+            }
+
+            element.style.color = "rgb(" + red + ", " + green + ", " + blue + ")";
+            element.style.filter = "contrast(" + contraste + "%)";
+        }
+    </script>
+</html>
