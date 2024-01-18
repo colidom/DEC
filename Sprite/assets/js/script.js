@@ -90,8 +90,8 @@ function movePlayer() {
     });
 
     // Aplicar fricción para desacelerar
-    player.velocity.x *= 1 - player.friction;
-    player.velocity.y *= 1 - player.friction;
+    player.velocity.x *= 0.8 - player.friction;
+    player.velocity.y *= 0.8 - player.friction;
 
     // Actualizar la posición del jugador
     player.x += player.velocity.x;
