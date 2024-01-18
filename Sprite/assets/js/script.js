@@ -32,6 +32,9 @@ const player = {
     velocity: { x: 0, y: 0 },
 };
 
+// Bandera para controlar si ya ocurrió una colisión
+let collisionOccurred = false;
+
 function drawFrame(frameX, frameY, canvasX, canvasY) {
     ctx.drawImage(img, frameX * width, frameY * height, width, height, canvasX, canvasY, scaledWidth, scaledHeight);
 }
@@ -90,8 +93,15 @@ function checkCollision() {
         player.y < sprite.y + scaledHeight - separationThreshold &&
         player.y + scaledHeight > sprite.y + separationThreshold
     ) {
-        // Colisión detectada
-        alert("¡Game Over!");
+        // Verificar si ya ocurrió una colisión
+        if (!collisionOccurred) {
+            // Colisión detectada
+            alert("¡Game Over!");
+            collisionOccurred = true; // Establecer la bandera a true para evitar alertas adicionales
+        }
+    } else {
+        // Restablecer la bandera si no hay colisión
+        collisionOccurred = false;
     }
 }
 
