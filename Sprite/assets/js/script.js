@@ -76,7 +76,6 @@ function moveSprite() {
     sprite.x = Math.max(0, Math.min(canvas.width - scaledWidth, sprite.x));
     sprite.y = Math.max(0, Math.min(canvas.height - scaledHeight, sprite.y));
 }
-
 function movePlayer() {
     document.addEventListener("keydown", (event) => {
         if (!player.isMoving) {
@@ -101,9 +100,14 @@ function movePlayer() {
         }
     });
 
-    // Aplicar fricción para desacelerar
-    player.velocity.x *= 0.8 - player.friction;
-    player.velocity.y *= 0.8 - player.friction;
+    // Normalizar la velocidad para que sea constante
+    const speed = 2.0; // Puedes ajustar la velocidad según tus preferencias
+    const magnitude = Math.sqrt(player.velocity.x ** 2 + player.velocity.y ** 2);
+
+    if (magnitude !== 0) {
+        player.velocity.x = (player.velocity.x / magnitude) * speed;
+        player.velocity.y = (player.velocity.y / magnitude) * speed;
+    }
 
     // Actualizar la posición del jugador
     player.x += player.velocity.x;
