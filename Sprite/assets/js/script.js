@@ -28,8 +28,11 @@ const sprite = {
 const player = {
     x: canvas.width / 2 - scaledWidth / 2,
     y: canvas.height / 2 - scaledHeight / 2,
-    speed: 2.5,
+    speed: 0, // Velocidad inicial
+    acceleration: 0.2, // Aceleración al mover con el teclado
+    friction: 0.1, // Fricción para desacelerar
     velocity: { x: 0, y: 0 },
+    isMoving: false, // Bandera para controlar si el jugador está en movimiento
 };
 
 // Bandera para controlar si ya ocurrió una colisión
@@ -55,25 +58,31 @@ function moveSprite() {
 
 function movePlayer() {
     document.addEventListener("keydown", (event) => {
+        if (!player.isMoving) {
+            // Cambiar la bandera y el frame cuando se presiona la primera tecla
+            player.isMoving = true;
+            currentLoopIndex = 0;
+        }
+
         switch (event.key) {
             case "ArrowLeft":
-                player.velocity.x = -player.speed;
-                player.velocity.y = 0;
+                player.velocity.x -= player.acceleration;
                 break;
             case "ArrowRight":
-                player.velocity.x = player.speed;
-                player.velocity.y = 0;
+                player.velocity.x += player.acceleration;
                 break;
             case "ArrowUp":
-                player.velocity.x = 0;
-                player.velocity.y = -player.speed;
+                player.velocity.y -= player.acceleration;
                 break;
             case "ArrowDown":
-                player.velocity.x = 0;
-                player.velocity.y = player.speed;
+                player.velocity.y += player.acceleration;
                 break;
         }
     });
+
+    // Aplicar fricción para desacelerar
+    player.velocity.x *= 1 - player.friction;
+    player.velocity.y *= 1 - player.friction;
 
     // Actualizar la posición del jugador
     player.x += player.velocity.x;
@@ -134,7 +143,8 @@ function step() {
     // Verifica la colisión entre el sprite y el jugador
     checkCollision();
 
-    drawFrame(1, 0, player.x, player.y);
+    // Dibuja al jugador
+    drawFrame(player.isMoving ? cycleLoop[currentLoopIndex] : 1, 0, player.x, player.y);
 
     window.requestAnimationFrame(step);
 }
