@@ -63,7 +63,7 @@ function moveSprite() {
     sprite.x += sprite.speedX;
     sprite.y += sprite.speedY;
 
-    // Limitar el sprite dentro del canvas y evitar esquinas
+    // Limitar el sprite dentro del canvas y hacer que rebote en los bordes
     if (sprite.x < 0 || sprite.x + scaledWidth > canvas.width) {
         sprite.speedX *= -1; // Invertir la velocidad en el eje X al llegar al borde izquierdo o derecho
     }
@@ -71,6 +71,10 @@ function moveSprite() {
     if (sprite.y < 0 || sprite.y + scaledHeight > canvas.height) {
         sprite.speedY *= -1; // Invertir la velocidad en el eje Y al llegar al borde superior o inferior
     }
+
+    // Asegurar que el sprite permanezca dentro del canvas
+    sprite.x = Math.max(0, Math.min(canvas.width - scaledWidth, sprite.x));
+    sprite.y = Math.max(0, Math.min(canvas.height - scaledHeight, sprite.y));
 }
 
 function movePlayer() {
