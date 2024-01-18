@@ -114,7 +114,7 @@ function checkCollision() {
         // Verificar si ya ocurrió una colisión
         if (!collisionOccurred) {
             // Colisión detectada
-            alert("¡Game Over!");
+            alert("¡Pillado...!");
             collisionOccurred = true; // Establecer la bandera a true para evitar alertas adicionales
         }
     } else {
