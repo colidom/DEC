@@ -159,10 +159,10 @@ function step() {
     moveSprite();
 
     // Dibuja el nombre del jugador automático (Player 1)
-    drawPlayerText(1, "red", sprite.x, sprite.y);
+    drawPlayerText(1, "blue", player.x, player.y);
 
     // Dibuja el nombre del jugador controlado por el teclado (Player 2)
-    drawPlayerText(2, "blue", player.x, player.y);
+    drawPlayerText(2, "red", sprite.x, sprite.y);
 
     // Mueve al jugador controlado por el teclado
     movePlayer();
