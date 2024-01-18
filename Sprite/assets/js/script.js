@@ -42,6 +42,14 @@ function drawFrame(frameX, frameY, canvasX, canvasY) {
     ctx.drawImage(img, frameX * width, frameY * height, width, height, canvasX, canvasY, scaledWidth, scaledHeight);
 }
 
+function drawPlayerText(playerNumber, color, playerX, playerY) {
+    ctx.fillStyle = color;
+    ctx.font = "12px Arial";
+    const playerName = `Player ${playerNumber}`;
+    const textWidth = ctx.measureText(playerName).width;
+    ctx.fillText(playerName, playerX + (scaledWidth - textWidth) / 2, playerY - 5);
+}
+
 function moveSprite() {
     const maxSpeedChange = 0.5; // Máximo cambio de velocidad permitido en cada cuadro
 
@@ -145,6 +153,12 @@ function step() {
 
     // Mueve el sprite principal
     moveSprite();
+
+    // Dibuja el nombre del jugador automático (Player 1)
+    drawPlayerText(1, "red", sprite.x, sprite.y);
+
+    // Dibuja el nombre del jugador controlado por el teclado (Player 2)
+    drawPlayerText(2, "blue", player.x, player.y);
 
     // Mueve al jugador controlado por el teclado
     movePlayer();
