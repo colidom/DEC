@@ -55,18 +55,18 @@ function movePlayer() {
         switch (event.key) {
             case "ArrowLeft":
                 player.velocity.x = -player.speed;
-                player.velocity.y = 5;
+                player.velocity.y = 0;
                 break;
             case "ArrowRight":
                 player.velocity.x = player.speed;
-                player.velocity.y = 5;
+                player.velocity.y = 0;
                 break;
             case "ArrowUp":
-                player.velocity.x = 5;
+                player.velocity.x = 0;
                 player.velocity.y = -player.speed;
                 break;
             case "ArrowDown":
-                player.velocity.x = 5;
+                player.velocity.x = 0;
                 player.velocity.y = player.speed;
                 break;
         }
@@ -79,6 +79,20 @@ function movePlayer() {
     // Limitar al jugador dentro del canvas
     player.x = Math.max(0, Math.min(canvas.width - scaledWidth, player.x));
     player.y = Math.max(0, Math.min(canvas.height - scaledHeight, player.y));
+}
+
+function checkCollision() {
+    const separationThreshold = 10;
+
+    if (
+        player.x < sprite.x + scaledWidth - separationThreshold &&
+        player.x + scaledWidth > sprite.x + separationThreshold &&
+        player.y < sprite.y + scaledHeight - separationThreshold &&
+        player.y + scaledHeight > sprite.y + separationThreshold
+    ) {
+        // Colisión detectada
+        alert("¡Game Over!");
+    }
 }
 
 function step() {
@@ -106,6 +120,10 @@ function step() {
 
     // Mueve al jugador controlado por el teclado
     movePlayer();
+
+    // Verifica la colisión entre el sprite y el jugador
+    checkCollision();
+
     drawFrame(1, 0, player.x, player.y);
 
     window.requestAnimationFrame(step);
