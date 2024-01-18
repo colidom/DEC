@@ -43,6 +43,15 @@ function drawFrame(frameX, frameY, canvasX, canvasY) {
 }
 
 function moveSprite() {
+    const maxSpeedChange = 0.5; // Máximo cambio de velocidad permitido en cada cuadro
+
+    // Aplicar un cambio de velocidad aleatorio y gradual
+    const speedChangeX = (Math.random() - 2.5) * maxSpeedChange;
+    const speedChangeY = (Math.random() - 2.5) * maxSpeedChange;
+
+    sprite.speedX += speedChangeX;
+    sprite.speedY += speedChangeY;
+
     sprite.x += sprite.speedX;
     sprite.y += sprite.speedY;
 
