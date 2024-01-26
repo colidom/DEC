@@ -35,7 +35,6 @@ function realizarLlamadaAjax() {
         },
     });
 
-    // Muestra el bloque #respuestaAjax
     $("#respuestaAjax").show();
 }
 
@@ -57,9 +56,7 @@ function realizarLlamadaFetch() {
             return response.json();
         })
         .then((respuestaJSON) => {
-            // Utilizar un template tag para mostrar la respuesta
             $("#respuestaFetch").html(`<p>${respuestaJSON.resultado}</p>`);
-            // Muestra el bloque #respuestaFetch
             $("#respuestaFetch").show();
 
             // Oculta el bloque después de 10 segundos
@@ -68,7 +65,6 @@ function realizarLlamadaFetch() {
             }, 10000);
         })
         .catch((error) => {
-            // Manejar errores si es necesario
             alert("Error en la llamada Fetch: " + error.message);
             console.error(error);
         });
