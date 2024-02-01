@@ -101,7 +101,7 @@ function movePlayer() {
     });
 
     // Normalizar la velocidad para que sea constante
-    const speed = 2.0; // Puedes ajustar la velocidad según tus preferencias
+    const speed = 5.0; // Puedes ajustar la velocidad según tus preferencias
     const magnitude = Math.sqrt(player.velocity.x ** 2 + player.velocity.y ** 2);
 
     if (magnitude !== 0) {
