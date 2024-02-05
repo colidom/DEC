@@ -1,4 +1,4 @@
-<consecionario>
+<concesionario>
     <coche>
         <marca>Volkswagen</marca>
         <modelo>Golf 1.4 TSI Comfortline</modelo>
@@ -20,4 +20,32 @@
         <año>2010</año>
         <precio>149.999,00 €</precio>
     </coche>
-</consecionario>
+    <coche>
+        <marca>Toyota</marca>
+        <modelo>Corolla Hybrid</modelo>
+        <color>Azul metálico</color>
+        <año>2022</año>
+        <precio>25,000.00 €</precio>
+    </coche>
+    <coche>
+        <marca>Chevrolet</marca>
+        <modelo>Camaro SS</modelo>
+        <color>Amarillo</color>
+        <año>2019</año>
+        <precio>50,000.00 €</precio>
+    </coche>
+    <coche>
+        <marca>Mercedes-Benz</marca>
+        <modelo>CLA 250</modelo>
+        <color>Plateado</color>
+        <año>2021</año>
+        <precio>40,000.00 €</precio>
+    </coche>
+    <coche>
+        <marca>Honda</marca>
+        <modelo>Accord</modelo>
+        <color>Gris</color>
+        <año>2018</año>
+        <precio>30,000.00 €</precio>
+    </coche>
+</concesionario>
