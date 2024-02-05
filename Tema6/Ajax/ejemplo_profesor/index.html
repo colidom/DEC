@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ejemplo llamada asincrona</title>
+    </head>
+    <body>
+        <div id="lasWebs">
+            <script>
+                var xmlhttp = new XMLHttpRequest();
+                var url = "mywebs.json";
+                // con el objeto creado le decimos que ocurre al llamarse
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        var listaWebs = JSON.parse(this.responseText);
+                        getWebs(listaWebs);
+                    }
+                };
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+                function getWebs(arr) {
+                    var out = "";
+                    var d;
+                    for (i = 0; i < arr.length; i++) {
+                        out += '<a href="' + arr[i].url + '">' + arr[i].display + "</a><br>";
+                    }
+                    document.getElementById("lasWebs").innerHTML = out;
+                }
+            </script>
+        </div>
+    </body>
+</html>
