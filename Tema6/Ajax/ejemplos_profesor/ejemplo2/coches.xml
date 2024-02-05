@@ -1,0 +1,23 @@
+<consecionario>
+    <coche>
+        <marca>Volkswagen</marca>
+        <modelo>Golf 1.4 TSI Comfortline</modelo>
+        <color>Negro</color>
+        <año>2000</año>
+        <precio>5693,87 €</precio>
+    </coche>
+    <coche>
+        <marca>Ferrari</marca>
+        <modelo>F430 Spider</modelo>
+        <color>Blanco con rojo</color>
+        <año>2005</año>
+        <precio>1.200.000,00 €</precio>
+    </coche>
+    <coche>
+        <marca>Ford</marca>
+        <modelo>Fiesta S2000 RS</modelo>
+        <color>Rojo metálico</color>
+        <año>2010</año>
+        <precio>149.999,00 €</precio>
+    </coche>
+</consecionario>
