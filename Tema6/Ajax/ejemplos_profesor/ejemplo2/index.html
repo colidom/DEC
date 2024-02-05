@@ -22,7 +22,7 @@
                 var xmlDatos = xml.responseXML;
                 array = xmlDatos.getElementsByTagName("marca");
                 for (i = 0; i < array.length; i++) {
-                    datos = datos + "marca: " + array[i].childNodes[0].nodeValie + "<br>";
+                    datos = datos + "Marca: " + array[i].childNodes[0].nodeValue + "<br>";
                 }
                 document.getElementById("listado").innerHTML = datos;
             }
