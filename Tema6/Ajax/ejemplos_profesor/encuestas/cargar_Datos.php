@@ -9,4 +9,4 @@ $resultados = file_get_contents($resultadosFile);
 $puntuaciones = explode('||', $resultados);
 
 // Devuelve la respuesta como un objeto JSON
-echo json_encode(array("mensaje" => "Datos cargados correctamente", "puntuaciones" => $puntuaciones));
+echo json_encode(array("cargaDatos" => "¡Datos cargados correctamente!", "puntuaciones" => $puntuaciones));

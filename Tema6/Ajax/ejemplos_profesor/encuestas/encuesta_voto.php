@@ -39,7 +39,7 @@ if (isset($_GET['voto'])) {
     $mensaje = "¡Has votado por {$voto}!";
 
     // Devuelve la respuesta como un objeto JSON
-    echo json_encode(array("mensaje" => $mensaje, "puntuaciones" => $puntuaciones));
+    echo json_encode(array("votoMsg" => $mensaje, "puntuaciones" => $puntuaciones));
 } else {
     // Si no se recibió el voto, muestra un mensaje de error
     echo "Error: No se recibió el voto.";

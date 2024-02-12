@@ -40,7 +40,10 @@ function cargarDatosIniciales() {
         if (this.readyState == 4 && this.status == 200) {
             var respuesta = JSON.parse(this.responseText);
             configurarGrafico(respuesta.puntuaciones);
-            document.getElementById("mensaje").innerHTML = respuesta.mensaje;
+            document.getElementById("cargaDatosMsg").innerHTML = respuesta.cargaDatos;
+            setTimeout(() => {
+                document.getElementById("cargaDatosMsg").innerHTML = "";
+            }, 3000);
         }
     };
     xmlhttp.open("GET", "cargar_datos.php", true);
@@ -55,7 +58,10 @@ function getVoto(id) {
             var respuesta = JSON.parse(this.responseText);
             myChart.data.datasets[0].data = respuesta.puntuaciones;
             myChart.update();
-            document.getElementById("mensaje").innerHTML = respuesta.mensaje;
+            document.getElementById("votoMsg").innerHTML = respuesta.votoMsg;
+            setTimeout(() => {
+                document.getElementById("votoMsg").innerHTML = "";
+            }, 2000);
         }
     };
     xmlhttp.open("GET", "encuesta_voto.php?voto=" + id, true);
