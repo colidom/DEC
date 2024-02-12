@@ -40,9 +40,24 @@ function cargarDatosIniciales() {
         if (this.readyState == 4 && this.status == 200) {
             var respuesta = JSON.parse(this.responseText);
             configurarGrafico(respuesta.puntuaciones);
-            document.getElementById("cargaDatosMsg").innerHTML = respuesta.cargaDatos;
+            var cargaDatosMsgElement = document.getElementById("cargaDatosMsg");
+
+            // Mostrar el mensaje y configurar el temporizador de desvanecimiento
+            cargaDatosMsgElement.innerHTML = respuesta.cargaDatos;
+            cargaDatosMsgElement.style.opacity = 1;
+
             setTimeout(() => {
-                document.getElementById("cargaDatosMsg").innerHTML = "";
+                // Desvanecer el mensaje gradualmente
+                var fadeEffect = setInterval(function () {
+                    if (cargaDatosMsgElement.style.opacity > 0) {
+                        cargaDatosMsgElement.style.opacity -= 0.1;
+                    } else {
+                        // Limpiar el intervalo y restablecer la opacidad
+                        clearInterval(fadeEffect);
+                        cargaDatosMsgElement.style.opacity = 1;
+                        cargaDatosMsgElement.innerHTML = "";
+                    }
+                }, 100); // Ajusta la velocidad de desvanecimiento según sea necesario
             }, 3000);
         }
     };
@@ -58,12 +73,28 @@ function getVoto(id) {
             var respuesta = JSON.parse(this.responseText);
             myChart.data.datasets[0].data = respuesta.puntuaciones;
             myChart.update();
-            document.getElementById("votoMsg").innerHTML = respuesta.votoMsg;
+            var votoMsgElement = document.getElementById("votoMsg");
+
+            // Mostrar el mensaje y configurar el temporizador de desvanecimiento
+            votoMsgElement.innerHTML = respuesta.votoMsg;
+            votoMsgElement.style.opacity = 1;
+
             setTimeout(() => {
-                document.getElementById("votoMsg").innerHTML = "";
+                // Desvanecer el mensaje gradualmente
+                var fadeEffect = setInterval(function () {
+                    if (votoMsgElement.style.opacity > 0) {
+                        votoMsgElement.style.opacity -= 0.1;
+                    } else {
+                        // Limpiar el intervalo y restablecer la opacidad
+                        clearInterval(fadeEffect);
+                        votoMsgElement.style.opacity = 1;
+                        votoMsgElement.innerHTML = "";
+                    }
+                }, 100); // Ajusta la velocidad de desvanecimiento según sea necesario
             }, 2000);
         }
     };
+
     xmlhttp.open("GET", "encuesta_voto.php?voto=" + id, true);
     xmlhttp.send();
 }
