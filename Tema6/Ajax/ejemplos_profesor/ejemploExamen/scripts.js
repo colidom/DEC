@@ -1,3 +1,36 @@
+// Obtén los datos de resultados desde el servidor (puedes cambiar esto según tu estructura de datos)
+var resultadosData = "<?php echo file_get_contents($resultadosFile); ?>";
+var resultadosArray = resultadosData.split("||").map(Number);
+
+// Configura y crea el gráfico de barras
+var ctx = document.getElementById("graficoResultados").getContext("2d");
+var myChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+        labels: ["Real Madrid", "Barcelona", "Atlético de Madrid", "Girona"],
+        datasets: [
+            {
+                label: "Porcentaje de Votos",
+                data: resultadosArray,
+                backgroundColor: ["#FF5733", "#3498db", "#27ae60", "#f39c12"],
+            },
+        ],
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 100,
+                ticks: {
+                    callback: function (value) {
+                        return value + "%";
+                    },
+                },
+            },
+        },
+    },
+});
+
 function getVoto(id) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
