@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Encuesta Liga 2024</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <!-- Columna de la encuesta -->
+                <div class="col-sm-6">
+                    <div class="mt-5" id="encuesta">
+                        <h3>¿Qué equipo crees que ganará la liga este año?</h3>
+                        <div class="mt-5 formulario">
+                            <form action="" method="post">
+                                <label>
+                                    <input type="radio" name="voto" value="RealMadrid" onclick="getVoto(this.value)" />
+                                    Real Madrid
+                                </label>
+                                <br />
+                                <label>
+                                    <input type="radio" name="voto" value="Barcelona" onclick="getVoto(this.value)" />
+                                    Barcelona
+                                </label>
+                                <br />
+                                <label>
+                                    <input type="radio" name="voto" value="AtleticoMadrid" onclick="getVoto(this.value)" />
+                                    Atlético de Madrid
+                                </label>
+                                <br />
+                                <label>
+                                    <input type="radio" name="voto" value="Girona" onclick="getVoto(this.value)" />
+                                    Girona
+                                </label>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Columna de resultados -->
+                <div class="col-sm-6">
+                    <div class="mt-5">
+                        <h3>Resultados</h3>
+                        <div class="mt-5" id="resultados">
+                            <!-- Aquí se mostrarán los resultados -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function getVoto(id) {
+                xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("resultados").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "encuesta_voto.php?voto=" + id, true);
+                xmlhttp.send();
+            }
+        </script>
+    </body>
+</html>
