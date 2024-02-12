@@ -10,6 +10,7 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
+        <script src="https://kit.fontawesome.com/d997fb5ffd.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
 
@@ -22,25 +23,20 @@
                         <h3>¿Qué equipo crees que ganará la liga este año?</h3>
                         <div class="mt-5 formulario">
                             <form action="" method="post">
-                                <label>
-                                    <input type="radio" name="voto" value="RealMadrid" />
-                                    Real Madrid
-                                </label>
+                                <!-- Reemplaza los radio buttons con botones de Font Awesome -->
+                                <button type="button" class="btn btn-link" onclick="getVoto('RealMadrid')">
+                                    <i class="fas fa-arrow-up"></i> Real Madrid
+                                </button>
                                 <br />
-                                <label>
-                                    <input type="radio" name="voto" value="Barcelona" />
-                                    Barcelona
-                                </label>
+                                <button type="button" class="btn btn-link" onclick="getVoto('Barcelona')">
+                                    <i class="fas fa-arrow-up"></i> Barcelona
+                                </button>
                                 <br />
-                                <label>
-                                    <input type="radio" name="voto" value="AtleticoMadrid" />
-                                    Atlético de Madrid
-                                </label>
+                                <button type="button" class="btn btn-link" onclick="getVoto('AtleticoMadrid')">
+                                    <i class="fas fa-arrow-up"></i> Atlético de Madrid
+                                </button>
                                 <br />
-                                <label>
-                                    <input type="radio" name="voto" value="Girona" />
-                                    Girona
-                                </label>
+                                <button type="button" class="btn btn-link" onclick="getVoto('Girona')"><i class="fas fa-arrow-up"></i> Girona</button>
                             </form>
                         </div>
                     </div>
