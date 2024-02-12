@@ -36,7 +36,7 @@ if (isset($_GET['voto'])) {
     file_put_contents($resultadosFile, $nuevosResultados);
 
     // Construye el mensaje a mostrar en el frontend
-    $mensaje = "¡Has votado por: " . $voto . "! Puntuación actualizada: " . $nuevosResultados;
+    $mensaje = "¡Has votado por {$voto}!";
 
     // Devuelve la respuesta como un objeto JSON
     echo json_encode(array("mensaje" => $mensaje, "puntuaciones" => $puntuaciones));
