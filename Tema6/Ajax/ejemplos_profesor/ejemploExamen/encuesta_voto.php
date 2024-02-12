@@ -38,8 +38,8 @@ if (isset($_GET['voto'])) {
     // Construye el mensaje a mostrar en el frontend
     $mensaje = "¡Has votado por: " . $voto . "! Puntuación actualizada: " . $nuevosResultados;
 
-    // Devuelve el mensaje al frontend
-    echo $mensaje;
+    // Devuelve la respuesta como un objeto JSON
+    echo json_encode(array("mensaje" => $mensaje, "puntuaciones" => $puntuaciones));
 } else {
     // Si no se recibió el voto, muestra un mensaje de error
     echo "Error: No se recibió el voto.";

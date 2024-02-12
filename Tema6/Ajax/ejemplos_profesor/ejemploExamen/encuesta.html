@@ -11,6 +11,7 @@
             crossorigin="anonymous"
         />
         <script src="scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
 
     <body>
@@ -49,12 +50,49 @@
                 <div class="col-sm-6">
                     <div class="mt-5">
                         <h3>Resultados</h3>
+                        <!-- En el área de resultados, reemplaza el contenido con un canvas para el gráfico -->
                         <div class="mt-5" id="resultados">
-                            <!-- Aquí se mostrarán los resultados -->
+                            <canvas id="graficoResultados" width="400" height="200"></canvas>
+                            <div id="mensaje"></div>
+                            <!-- Nuevo elemento para mostrar el mensaje -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </body>
+    <script>
+        // Obtén los datos de resultados desde el servidor (puedes cambiar esto según tu estructura de datos)
+        var resultadosData = "<?php echo file_get_contents($resultadosFile); ?>";
+        var resultadosArray = resultadosData.split("||").map(Number);
+
+        // Configura y crea el gráfico de barras
+        var ctx = document.getElementById("graficoResultados").getContext("2d");
+        var myChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: ["Real Madrid", "Barcelona", "Atlético de Madrid", "Girona"],
+                datasets: [
+                    {
+                        label: "Porcentaje de Votos",
+                        data: resultadosArray,
+                        backgroundColor: ["#FF5733", "#3498db", "#27ae60", "#f39c12"],
+                    },
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            callback: function (value) {
+                                return value + "%";
+                            },
+                        },
+                    },
+                },
+            },
+        });
+    </script>
 </html>
